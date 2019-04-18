@@ -17,6 +17,7 @@
 #include "atom/browser/browser_observer.h"
 #include "atom/common/native_mate_converters/callback.h"
 #include "atom/common/promise_util.h"
+#include "base/optional.h"
 #include "base/process/process_iterator.h"
 #include "base/process/process_metrics.h"
 #include "base/task/cancelable_task_tracker.h"
@@ -175,7 +176,7 @@ class App : public AtomBrowserClient::Delegate,
   void ChildProcessLaunched(int process_type, base::ProcessHandle handle);
   void ChildProcessDisconnected(base::ProcessId pid);
 
-  void SetAppLogsPath();
+  void SetAppLogsPath(mate::Arguments* args);
 
   // Get/Set the pre-defined path in PathService.
   base::FilePath GetPath(mate::Arguments* args, const std::string& name);
